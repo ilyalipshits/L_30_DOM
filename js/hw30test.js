@@ -23,6 +23,30 @@ function validateUser(user) {
     }
 }
 
+function validateUser2(user) {
+    let myStr=""
+    // Проверяем наличие имени
+    if (!user.name) {
+       myStr+="User name is missing";
+    }
+
+    // Проверяем наличие email
+    if (!user.email) {
+       myStr+="User email is missing";
+    }
+
+    // Проверяем, что id имеет числовой тип
+    if (typeof user.id !== "number") {
+        myStr+="User id must be a number";
+    }
+
+    if(myStr!==""){
+        throw new Error(myStr);
+    }
+
+
+}
+
 
 // Получаем пользователей через Axios
 axios.get(USERS_URL)
